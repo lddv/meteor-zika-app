@@ -27,12 +27,15 @@ Template.body.events({
   'click .editAddress': function(event) {
 
     // get the data we need from the form
-    var newAddress = {
-      localName: event.target.localName.value,
-      localAddress: event.target.localAddress.value
-    };
+    // var newAddress = {
+    //   localName: event.target.localName.value,
+    //   localAddress: event.target.localAddress.value
+    // };
 
     // create the new address
-    Addresses.update(newAddress);
+    Addresses.update(this._id, { $set: {localName: 'what', localAddress: 'ever'} });
+  },
+  'click .deleteAddress': function(event) {
+    Addresses.remove({ _id: this._id });
   }
 });
