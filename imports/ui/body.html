@@ -1,0 +1,23 @@
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{#if showForm}}
+    {{> addressform}}
+  {{else}}
+    <button type="button" class="btn btn-lg btn-primary btn-block showAddressForm">Adicionar endereço</button>
+  {{/if}}
+  <hr>
+  <div class="addresses">
+    {{#each addressList}}
+      {{> addressRow}}
+    {{/each }}
+  </div>
+</body>
+
+<template name="addressRow">
+  <div class="well well-lg" data-id="{{ _id }}">
+    <h3>{{ localName }}</h3>
+    <p>{{ localAddress }}</p>
+    <button type="button" class="btn btn-secondary editAddress">Editar</button>
+    <button type="button" class="btn btn-danger deleteAddress">Excluir</button>
+  </div>
+</template>

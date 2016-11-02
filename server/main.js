@@ -1,11 +1,12 @@
+import { Addresses } from '../imports/api/addresses.js';
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
   // code to run on server at startup
-  // if there are no polls available create sample data
+  // if there are no addresses available create sample data
   if (Addresses.find().count() === 0) {
 
-    // create sample polls
+    // create sample addresses
     var sampleAddresses = [
       {
         localName: 'Minha Casa',
@@ -17,7 +18,7 @@ Meteor.startup(() => {
       }
     ];
 
-    // loop over each sample poll and insert into database
+    // loop over each sample address and insert into database
     _.each(sampleAddresses, function(address) {
       Addresses.insert(address);
     });

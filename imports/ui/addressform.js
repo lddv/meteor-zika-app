@@ -1,4 +1,8 @@
-Template.addressForm.events({
+import { Template } from 'meteor/templating';
+import { Addresses } from '../api/addresses.js';
+import './addressform.html';
+
+Template.addressform.events({
 
   // handle the form submission
   'submit form': function(event) {
