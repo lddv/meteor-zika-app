@@ -12,11 +12,16 @@ Template.addressform.events({
 
     // get the data we need from the form
     var newAddress = {
-      localName: event.target.localName.value,
-      localAddress: event.target.localAddress.value
+      label: event.target.localName.value,
+      address: event.target.localAddress.value,
+      country: 'Brazil',
+      latitude: -19.9353658,
+      longitude: -43.9398996
     };
 
     // create the new address
+    var savedAddress = Meteor.call('postAddress', newAddress);
+    console.log('savedAddress:', savedAddress);
     Addresses.insert(newAddress);
   }
 
